@@ -24,8 +24,9 @@ tracks = db["tracks"]
 def populate_books():
     cursor = books.find()
     books_list = list(cursor)
+    json = dumps(books_list)
 
-    return dumps(books_list)
+    return render_template('catalog/books.html', books=books_list)
 
 @bp.route('/articles', methods=('GET', 'POST'))
 def populate_articles():
