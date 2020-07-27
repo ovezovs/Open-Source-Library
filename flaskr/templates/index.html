@@ -4,9 +4,13 @@
         <title>Open Source Library</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../static/style.css">
         
     </head>
     <body>
@@ -54,22 +58,57 @@
                 </div>
             </div>
         </nav>
-        
-        <div class="container" style="margin-top:60px">
-            <div class="row">
-                <div class="col-sm-3 col-md-6 col-lg-4 text-center">
+
+        <div class="container" id="landing-page" style="margin-top:60px">
+            <div class="row align-items-center" id="landing-row">
+                <div class="col-sm-3 col-md-6 col-lg-4 text-center vertically-centering" id="left-col">
                     <h2>Learn Tech Skills with Free<br> Open-Source Resources</h2>
                     <p>Text-based and video-based learning materials</p>
-                    <!-- <img src="../static/images/online-learning-concept-2043016-0.svg" alt=""> -->
+                    
                 </div>
-                <div class="col-sm-9 col-md-6 col-lg-8 text-center">
-                    <img src="../static/images/online-learning-concept-2043016-0.svg" alt="">
+                <div class="col-sm-9 col-md-6 col-lg-8 text-center vertically-centering">
+                    <img class="img-responsive" src="../static/images/online-edu-short-name.png" alt="">
                     <button type="button" class="btn btn-success btn-lg" id="get-started" onclick="location.href = '/auth/register';">Get Started</button>
                 </div>
               </div>
             
         </div>
 
+        <section class="section mt-5">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div>
+                    <img alt="Web Studio" class="img-fluid" src="https://raw.githubusercontent.com/solodev/vertically-centering/master/images/vc-img-1.jpg" />
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
+                  <div>
+                    <h2>Module Studio</h2>
+                    <p class="margin-top-s">Whether you&rsquo;re a full stack web developer, content author, or business professional &ndash; Solodev gives you the power to build, customize, and manage modules to boost your website.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <section class="section mt-5">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div>
+                    <img alt="Web Studio" class="img-fluid" src="https://raw.githubusercontent.com/solodev/vertically-centering/master/images/vc-img-2.jpg">
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
+                  <div>
+                    <h2>Web Studio</h2>
+                    <p class="margin-top-s">Convert your web pages into reusable templates without your designs getting lost in space. Use drop zones to dynamically add content to your templates and speed up development time.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
     </body>
 
