@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Open Source Library</title>
+        <title>{% block title %}Home{% endblock %} | Open Source Library</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <!-- jQuery library -->
@@ -39,35 +40,52 @@
             </div>
           </li>
         </ul>
+
         <form class="form-inline" action="#">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-success" type="submit">Search</button>
         </form>
+        
         <ul class="navbar-nav justify-content-end">
-          <li class="nav-item"><a class="nav-link" href="/auth/login">Log In</a></li>
-          <button class="btn btn-primary" type="submit" onclick="location.href = '/auth/register';">Register</button>
+          {% if g.user %}
+            <li class="nav-item"><a class="nav-link" href="/auth/logout">Log Out</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/auth/login">Log In</a></li>
+            <button class="btn btn-primary" type="submit" onclick="location.href = '/auth/register';">Register</button>
+          {% endif %}
         </ul>
         
       </nav>
       
-      
+      <section class="content" style="margin-top: 80px;">
+        <header>
+          {% block header %}{% endblock %}
+        </header>
+        {% for message in get_flashed_messages() %}
+          <div class="flash">{{ message }}</div>
+        {% endfor %}
 
-      <div class="container" style="margin-top: 80px;">
-        <div class="row">
-          <div class="col-md-6">
-            <div>
-              <img alt="" class="img-fluid" src="../static/images/online-edu-short-name.png" />
+        {% block content %}
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <div>
+                  <img alt="" class="img-fluid" src="../static/images/online-edu-short-name.png" />
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
+                <div>
+                  <h2>Learn Tech Skills with Free<br> Open-Source Resources</h2>
+                  <p class="margin-top-s">Text-based and video-based learning materials</p>
+                  <button type="button" class="btn btn-success btn-lg" id="get-started" onclick="location.href = '/auth/register';">Get Started</button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
-            <div>
-              <h2>Learn Tech Skills with Free<br> Open-Source Resources</h2>
-              <p class="margin-top-s">Text-based and video-based learning materials</p>
-              <button type="button" class="btn btn-success btn-lg" id="get-started" onclick="location.href = '/auth/register';">Get Started</button>
-            </div>
-          </div>
-        </div>
-      </div>
+        {% endblock %}
+
+      </section>
+      
 
 
     </body>
