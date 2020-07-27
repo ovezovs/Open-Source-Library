@@ -3,7 +3,6 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for, jsonify
 )
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_jwt_extended import create_access_token
 from pymongo import MongoClient
 from datetime import datetime
 import os
@@ -60,12 +59,12 @@ def register():
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
     """docstring"""
-    result = "login"
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
 
         user = users.find_one({'email': email})
+        
         error = None
 
         if user is None:
@@ -74,15 +73,20 @@ def login():
             error = "Invalid password"
         else:
             session.clear()
-            access_token = create_access_token(identity = {
-                "first_name": user['first_name'],
-                "last_name": user['last_name'],
-                "email": user['email']
-                }
-            )
-            result = jsonify({"token": access_token})
+            session["user_id"] = str(user["_id"])
+            
+            return redirect(url_for('index'))
         
-    return render_template('auth/login.html', result=result)
+    return render_template('auth/login.html')
+
+
+@bp.before_app_request
+def load_logged_in_user():
+    user_id = session.get("user_id")
+    if user_id is None:
+        g.user = None
+    else:
+        g.user = True
 
 
 @bp.route('/logout')

@@ -19,7 +19,7 @@
         
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <!-- Brand -->
-        <a class="navbar-brand" href="#">Open Source Library</a>
+        <a class="navbar-brand" href="/">Open Source Library</a>
       
         <!-- Links -->
         <ul class="navbar-nav">
@@ -48,6 +48,7 @@
         
         <ul class="navbar-nav justify-content-end">
           {% if g.user %}
+            
             <li class="nav-item"><a class="nav-link" href="/auth/logout">Log Out</a></li>
           {% else %}
             <li class="nav-item"><a class="nav-link" href="/auth/login">Log In</a></li>
@@ -57,7 +58,8 @@
         
       </nav>
       
-      <section class="content" style="margin-top: 80px;">
+      <section style="margin-top: 80px;">
+
         <header>
           {% block header %}{% endblock %}
         </header>
@@ -66,22 +68,26 @@
         {% endfor %}
 
         {% block content %}
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6">
-                <div>
-                  <img alt="" class="img-fluid" src="../static/images/online-edu-short-name.png" />
+          {% if g.user %}
+            <h1>Logged In</h1>
+          {% else %}
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div>
+                    <img alt="" class="img-fluid" src="../static/images/online-edu-short-name.png" />
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
-                <div>
-                  <h2>Learn Tech Skills with Free<br> Open-Source Resources</h2>
-                  <p class="margin-top-s">Text-based and video-based learning materials</p>
-                  <button type="button" class="btn btn-success btn-lg" id="get-started" onclick="location.href = '/auth/register';">Get Started</button>
+                <div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
+                  <div>
+                    <h2>Learn Tech Skills with Free<br> Open-Source Resources</h2>
+                    <p class="margin-top-s">Text-based and video-based learning materials</p>
+                    <button type="button" class="btn btn-success btn-lg" id="get-started" onclick="location.href = '/auth/register';">Get Started</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          {% endif %}
         {% endblock %}
 
       </section>
