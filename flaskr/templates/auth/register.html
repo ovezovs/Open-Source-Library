@@ -1,15 +1,31 @@
 {% extends 'index.html' %}
 
 {% block header %}
-  <h1>{% block title %}Register{% endblock %}</h1>
+  <div class="container text-center">
+    <h1>{% block title %}Register{% endblock %}</h1>
+  </div>
 {% endblock %}
 
 {% block content %}
-  <form method="post">
-    <input name="first-name" id="first-name" placeholder="First Name">
-    <input name="last-name" id="last-name" placeholder="Last Name">
-    <input name="email" id="email" placeholder="Email" required>
-    <input name="password" id="password" placeholder="Password" type="password" required>
-    <input type="submit" value="Register">
-  </form>
+  <div class="container">
+    <form method="post">
+      <div class="form-group">
+        <label for="inputFirstName">First Name</label>
+        <input type="text" class="form-control" name="first-name" id="first-name" placeholder="First Name" required/>
+      </div>
+      <div class="form-group">
+        <label for="inputLastName">Last Name</label>
+        <input type="text" class="form-control" name="last-name" id="last-name" placeholder="Last Name" required/>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail">Email Address</label>
+        <input type="email" class="form-control" name="email" title="email" placeholder="Enter Email" required/>
+      </div>
+      <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" class="form-control" name="password" title="password" placeholder="Enter Password" required/>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 {% endblock %}

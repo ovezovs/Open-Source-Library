@@ -1,13 +1,24 @@
 {% extends 'index.html' %}
 
 {% block header %}
-  <h1>{% block title %}Log In{% endblock %}</h1>
+  <div class="container text-center">
+    <h1>{% block title %}Log In{% endblock %}</h1>
+  </div>
 {% endblock %}
 
 {% block content %}
-  <form method="post">
-    <input type="text" name="email" title="email" placeholder="Email" required/>
-    <input type="password" name="password" title="password" placeholder="Password" required/>
-    <input type="submit" value="Log In">
-  </form>
+  <div class="container">
+    <form method="post" style="width: 400px;">
+      <div class="form-group">
+          <label for="inputEmail">Email Address</label>
+          <input type="text" class="form-control" name="email" title="email" placeholder="Enter Email" required/>
+      </div>
+      <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" class="form-control" name="password" title="password" placeholder="Enter Password" required/>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+  </div>
 {% endblock %}
