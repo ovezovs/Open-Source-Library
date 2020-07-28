@@ -24,27 +24,26 @@ tracks = db["tracks"]
 def populate_books():
     cursor = books.find()
     books_list = list(cursor)
-    json = dumps(books_list)
 
-    return render_template('catalog/books.html', books=books_list)
+    return render_template('catalog/resources.html', resources=books_list, books=True)
 
 @bp.route('/articles', methods=('GET', 'POST'))
 def populate_articles():
     cursor = articles.find()
     articles_list = list(cursor)
 
-    return dumps(articles_list)
+    return render_template('catalog/resources.html', resources=articles_list, articles=True)
 
 @bp.route('/courses', methods=('GET', 'POST'))
 def populate_courses():
     cursor = courses.find()
     courses_list = list(cursor)
 
-    return dumps(courses_list)
+    return render_template('catalog/resources.html', resources=courses_list, courses=True)
 
 @bp.route('/tracks', methods=('GET', 'POST'))
 def populate_tracks():
     cursor = tracks.find()
     tracks_list = list(cursor)
 
-    return dumps(tracks_list)
+    return render_template('catalog/resources.html', resources=tracks_list, tracks=True)

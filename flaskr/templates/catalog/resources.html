@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+
+{% block header %}
+    <div class="container text-center">
+        <h1>{% block title %}
+            {% if books %}
+                Books
+            {% elif articles %}
+                Articles
+            {% elif courses %}
+                Courses
+            {% elif tracks %}
+                Learning Tracks
+            {% endif %}
+        {% endblock %}</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+    <!-- <div class="card-deck"> -->
+        {% for item in resources %}
+            <div class="col-sm-4">
+            <div class="card border-secondary" id="item-card">
+                <h5 class="card-header text-center" >{{ item["title"] }}</h5>
+            
+                <div class="card-body">
+                    <p class="card-text">{{ item["original_description"] }}</p>
+                    <a href="{{ item['link'] }}" class="stretched-link" data-toggle="tooltip" title="Open the Resource" target="_blank"></a>
+                    {% for tech in item['tech_stack'] %}
+                        <span class="badge badge-info">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="card-footer" style="z-index: 2;">
+                    <small class="text-muted">Provided By <a href="{{ item['provider_link'] }}" target="_blank">{{ item["offered_by"] }}</a></small>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+ 
+    
+{% endblock %}
+
+{# {% include 'item_modal.html' %} #}
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#item-modal">
+    Launch demo modal
+</button> -->

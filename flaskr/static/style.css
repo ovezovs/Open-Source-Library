@@ -1,43 +1,19 @@
-/* .wrapper {
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-.vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
-}
-.align-items-center {
-    -ms-flex-align: center!important;
-    align-items: center!important;
-  }
-  .d-flex {
-    display: -ms-flexbox!important;
-    display: flex!important;
-  }
-/* #landing-page {
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-  align-items: center;
-  justify-content: center;
+
+#item-card:hover {
+    -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
 }
 
-#landing-row {
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-  align-items: center;
-  justify-content: center;
+#item-card {
+    margin-bottom: 30px;
 }
 
-#left-col {
-    height: 100vh;
-    overflow: hidden;
+.row {
     display: flex;
-  align-items: center;
-  justify-content: center;
-} */
+    flex-wrap: wrap;
+}
+ 
+.row > div[class*='col-'] {
+   display: flex;
+}
