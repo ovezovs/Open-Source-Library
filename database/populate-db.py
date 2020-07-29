@@ -28,7 +28,6 @@ tracks = db["tracks"]
 
 # drop all the collections before uploading new data
 try:
-    users.drop()
     books.drop()
     articles.drop()
     courses.drop()
