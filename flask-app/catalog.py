@@ -47,3 +47,8 @@ def populate_tracks():
     tracks_list = list(cursor)
 
     return render_template('catalog/resources.html', resources=tracks_list, tracks=True)
+
+
+@bp.route('/save', methods=('GET', 'POST'))
+def save_resource():
+    pass

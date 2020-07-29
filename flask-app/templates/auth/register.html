@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% block header %}
-  <div class="container text-center">
+  <div class="container text-center" style="margin-top: 80px;">
     <h1>{% block title %}Register{% endblock %}</h1>
   </div>
 {% endblock %}
@@ -11,21 +11,21 @@
     <form method="post">
       <div class="form-group">
         <label for="inputFirstName">First Name</label>
-        <input type="text" class="form-control" name="first-name" id="first-name" placeholder="First Name" required/>
+        <input type="text" class="form-control" name="first-name" id="first-name" placeholder="First Name"/>
       </div>
       <div class="form-group">
         <label for="inputLastName">Last Name</label>
-        <input type="text" class="form-control" name="last-name" id="last-name" placeholder="Last Name" required/>
+        <input type="text" class="form-control" name="last-name" id="last-name" placeholder="Last Name"/>
       </div>
       <div class="form-group">
-        <label for="inputEmail">Email Address</label>
-        <input type="email" class="form-control" name="email" title="email" placeholder="Enter Email" required/>
+        <label for="inputEmail">Username</label>
+        <input type="text" class="form-control" name="email" title="email" placeholder="Username" required/>
       </div>
       <div class="form-group">
           <label for="inputPassword">Password</label>
           <input type="password" class="form-control" name="password" title="password" placeholder="Enter Password" required/>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Register</button>
     </form>
   </div>
 {% endblock %}

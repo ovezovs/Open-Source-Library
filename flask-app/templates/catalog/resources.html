@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% block header %}
-    <div class="container text-center">
+    <div class="container text-center" style="margin-top: 80px;">
         <h1>{% block title %}
             {% if books %}
                 Books
@@ -31,10 +31,18 @@
                         {% for tech in item['tech_stack'] %}
                             <span class="badge badge-info">{{ tech }}</span>
                         {% endfor %}
+                       
                     </div>
 
                     <div class="card-footer" style="z-index: 2;">
-                        <small class="text-muted">Provided By <a href="{{ item['provider_link'] }}" target="_blank">{{ item["offered_by"] }}</a></small>
+                        <div class="d-flex m-2 cl">
+                            <small class="text-muted p-2">Provided By <a href="{{ item['provider_link'] }}" target="_blank">{{ item["offered_by"] }}</a></small>
+                            {% if g.user %}
+                                <a class="btn btn-outline-secondary ml-auto" id="save-item" href="#">Save</a>
+                            {% else %}
+                                <a class="btn btn-outline-secondary ml-auto" href="/auth/login">Save</a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>

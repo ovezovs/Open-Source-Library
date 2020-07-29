@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <link rel="icon" href="../static/images/cloud-library-logo.png" type="image/png" sizes="16x16">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../static/catalog.js"></script>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -50,7 +51,6 @@
           
           <ul class="navbar-nav ">
             {% if g.user %}
-              
               <li class="nav-item"><a class="nav-link" href="/auth/logout">Log Out</a></li>
             {% else %}
               <li class="nav-item"><a class="nav-link" href="/auth/login">Log In</a></li>
@@ -60,7 +60,6 @@
         </div>
       </nav>
       
-
         <header>
           {% block header %}{% endblock %}
         </header>
@@ -70,7 +69,7 @@
 
         {% block content %}
           {% if g.user %}
-            <h1>Logged In</h1>
+            <h1 style="margin-top: 80px;">Welcome!</h1>
           {% else %}
             <div class="container" id="landing-page">
               <div class="row" style="height: 100vh;">
