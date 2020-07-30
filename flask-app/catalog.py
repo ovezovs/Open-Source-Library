@@ -129,3 +129,18 @@ def save_resource(item_id):
 
     return jsonify(status=500)
 
+
+@bp.route('/remove/<item_id>', methods=('GET', 'POST'))
+def remove_resource(item_id):
+    user_id = ObjectId(session.get("user_id"))
+    
+    if g.user:
+        user = users.find_one({"_id": user_id})
+        saved_item_ids_list = user["saved"]
+        saved_item_ids_list.remove(item_id)
+        users.update_one({"_id": user_id}, {"$set": {"saved": saved_item_ids_list}}, upsert=False)
+
+        return jsonify(status=200)
+
+    return jsonify(status=500)
+

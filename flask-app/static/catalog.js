@@ -18,16 +18,14 @@ function saveItem(item_id) {
 
 
 function removeItem(item_id) {
-  console.log(item_id, typeof(item_id))
 
   $.ajax({
     url: '/catalog/remove/' + item_id,
     type: 'POST',
     success: function(response){
       console.log(response, "success");
-      // disable the button and fill color
-      $("#" + item_id).html("Removed");
-      $("#" + item_id).prop('disabled', true);
+      // reload the page
+      location.reload(true);
     },
     error: function(error){
       console.log(error);
