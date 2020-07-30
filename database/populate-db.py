@@ -13,6 +13,7 @@ ORIGINAL_DESCRIPTION_KEY    = "original_description"
 LINK_KEY                    = "link"
 TECH_STACK_KEY              = "tech_stack"
 FLAGS_KEY                   = "flags"
+SAVED_KEY                   = "saved"
 
 client = MongoClient(os.getenv("MONGO_URI"))
 db = client["freedemyDb"]
@@ -51,7 +52,8 @@ def populate_books():
             ORIGINAL_DESCRIPTION_KEY: "This book is meant to provide you with an interactive experience as you learn to program in Python. You can read the text, watch videos, and write and execute Python code. In addition to simply executing code, there is a unique feature called 'codelens' that allows you to control the flow of execution in order to gain a better understanding of how the program works.",
             LINK_KEY: "https://runestone.academy/runestone/books/published/thinkcspy/index.html",
             TECH_STACK_KEY: ["Python"],
-            FLAGS_KEY: ["Text-Based", "Interactive"]
+            FLAGS_KEY: ["Text-Based", "Interactive"],
+            SAVED_KEY: False
         },
         {
             TITLE_KEY: "Algorithms and Data Structures using Python",
@@ -60,7 +62,8 @@ def populate_books():
             ORIGINAL_DESCRIPTION_KEY: "This book began as a paper book, first published by Franklin Beedle & Associates back in 2005. Written by Brad Miller and David Ranum. We are grateful for the vision of Jim Leisy who gave us permission to take our text and publish it online as an interactive textbook.",
             LINK_KEY: "https://runestone.academy/runestone/books/published/pythonds/index.html",
             TECH_STACK_KEY: ["Python"],
-            FLAGS_KEY: ["Text-Based", "Interactive"]
+            FLAGS_KEY: ["Text-Based", "Interactive"],
+            SAVED_KEY: False
         },
         {
             TITLE_KEY: "Algorithms and Data Structures using C++",
@@ -69,7 +72,8 @@ def populate_books():
             ORIGINAL_DESCRIPTION_KEY: "This book began as the paper book, Problem Solving with Algorithms and Data Structures Using Python, first published by Franklin Beedle & Associates written by Brad Miller and David Ranum back in 2005. It was translated to C++ by Jan Pearce and a team of excellent Berea College students in the summer of 2018. We are all grateful for the vision of Jim Leisy who gave permission to take the original Python version of this text and freely publish it online as an interactive textbook.",
             LINK_KEY: "https://runestone.academy/runestone/books/published/cppds/index.html",
             TECH_STACK_KEY: ["C++", "Python"],
-            FLAGS_KEY: ["Text-Based", "Interactive"]
+            FLAGS_KEY: ["Text-Based", "Interactive"],
+            SAVED_KEY: False
         },
         {
             TITLE_KEY: "Algorithms and Data Structures using C++",
@@ -78,7 +82,8 @@ def populate_books():
             ORIGINAL_DESCRIPTION_KEY: "This book began as the paper book, Problem Solving with Algorithms and Data Structures Using Python, first published by Franklin Beedle & Associates written by Brad Miller and David Ranum back in 2005. It was translated to C++ by Jan Pearce and a team of excellent Berea College students in the summer of 2018. We are all grateful for the vision of Jim Leisy who gave permission to take the original Python version of this text and freely publish it online as an interactive textbook.",
             LINK_KEY: "https://runestone.academy/runestone/books/published/cppds/index.html",
             TECH_STACK_KEY: ["C++", "Python"],
-            FLAGS_KEY: ["Text-Based", "Interactive"]
+            FLAGS_KEY: ["Text-Based", "Interactive"],
+            SAVED_KEY: False
         },
         {
             TITLE_KEY: "Algorithms and Data Structures using C++",
@@ -87,7 +92,8 @@ def populate_books():
             ORIGINAL_DESCRIPTION_KEY: "This book began as the paper book, Problem Solving with Algorithms and Data Structures Using Python, first published by Franklin Beedle & Associates written by Brad Miller and David Ranum back in 2005. It was translated to C++ by Jan Pearce and a team of excellent Berea College students in the summer of 2018. We are all grateful for the vision of Jim Leisy who gave permission to take the original Python version of this text and freely publish it online as an interactive textbook.",
             LINK_KEY: "https://runestone.academy/runestone/books/published/cppds/index.html",
             TECH_STACK_KEY: ["C++", "Python"],
-            FLAGS_KEY: ["Text-Based", "Interactive"]
+            FLAGS_KEY: ["Text-Based", "Interactive"],
+            SAVED_KEY: False
         }
     ]
 
@@ -102,7 +108,8 @@ def populate_articles():
             ORIGINAL_DESCRIPTION_KEY: "The MDN 'Local Library' Express (Node) tutorial, in which we develop a website that might be used to manage the catalog for a local library.",
             LINK_KEY: "https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website",
             TECH_STACK_KEY: ["JavaScript", "Node", "Express"],
-            FLAGS_KEY: ["Text-Based", "Tutorial"]
+            FLAGS_KEY: ["Text-Based", "Tutorial"],
+            SAVED_KEY: False
         },
         {
             TITLE_KEY: "Express/Node introduction",
@@ -111,7 +118,8 @@ def populate_articles():
             ORIGINAL_DESCRIPTION_KEY: "In this Express article we answer the questions 'What is Node?' and 'What is Express?', and give you an overview of what makes the Express web framework special. We'll outline the main features, and show you some of the main building blocks of an Express application (although at this point you won't yet have a development environment in which to test it).",
             LINK_KEY: "https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction",
             TECH_STACK_KEY: ["Node", "Express"],
-            FLAGS_KEY: ["Text-Based"]
+            FLAGS_KEY: ["Text-Based"],
+            SAVED_KEY: False
         },
         {
             TITLE_KEY: "Setting up a Node development environment",
@@ -120,7 +128,8 @@ def populate_articles():
             ORIGINAL_DESCRIPTION_KEY: "We'll show you how to set up and test a Node/Express development environment on Windows, Linux (Ubuntu), and macOS. Whatever common operating system you are using, this article should give you what you need to be able to start developing Express apps.",
             LINK_KEY: "https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/development_environment",
             TECH_STACK_KEY: ["Node", "Express"],
-            FLAGS_KEY: ["Text-Based"]
+            FLAGS_KEY: ["Text-Based"],
+            SAVED_KEY: False
         }
     ]
 
@@ -135,7 +144,8 @@ def populate_courses():
             ORIGINAL_DESCRIPTION_KEY: "Express is a popular unopinionated web framework, written in JavaScript and hosted within the Node.js runtime environment. This module explains some of the key benefits of the framework, how to set up your development environment and how to perform common web development and deployment tasks.",
             LINK_KEY: "https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs",
             TECH_STACK_KEY: ["JavaScript", "Node", "Express"],
-            FLAGS_KEY: ["Text-Based"]
+            FLAGS_KEY: ["Text-Based"],
+            SAVED_KEY: False
         },
         {
             TITLE_KEY: "Django Web Framework (Python)",
@@ -144,7 +154,8 @@ def populate_courses():
             ORIGINAL_DESCRIPTION_KEY: "Django is an extremely popular and fully featured server-side web framework, written in Python. This module shows you why Django is one of the most popular web server frameworks, how to set up a development environment, and how to start using it to create your own web applications.",
             LINK_KEY: "https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django",
             TECH_STACK_KEY: ["Python", "Django"],
-            FLAGS_KEY: ["Text-Based"]
+            FLAGS_KEY: ["Text-Based"],
+            SAVED_KEY: False
         },
         {
             TITLE_KEY: "Server-side website programming first steps",
@@ -153,7 +164,8 @@ def populate_courses():
             ORIGINAL_DESCRIPTION_KEY: "In this module we answer a few fundamental questions about server-side programming — 'What is it?', 'How does it differ from client-side programming?', and 'Why is it so useful?'. We then provide an overview of some of the most popular server-side web frameworks, along with guidance on how to select the most suitable framework for creating your first site. Finally, we provide a high-level introductory article about web server security.",
             LINK_KEY: "https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps",
             TECH_STACK_KEY: ["Server-Side"],
-            FLAGS_KEY: ["Text-Based"]
+            FLAGS_KEY: ["Text-Based"],
+            SAVED_KEY: False
         }
     ]
 
@@ -170,7 +182,8 @@ def populate_tracks():
                                             In the modern world of web development, learning about server-side development is highly recommended.""",
             LINK_KEY: "https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps",
             TECH_STACK_KEY: ["Server-Side", "Python", "Django", "JavaScript", "Node", "Express"],
-            FLAGS_KEY: ["Text-Based"]
+            FLAGS_KEY: ["Text-Based"],
+            SAVED_KEY: False
         }
     ]
 
