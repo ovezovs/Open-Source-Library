@@ -1,11 +1,37 @@
-  $(function() {
-    $('a#save-item').bind('click', function() {
-      $.getJSON($SCRIPT_ROOT + '/_add_numbers', {
-        a: $('input[name="a"]').val(),
-        b: $('input[name="b"]').val()
-      }, function(data) {
-        $("#result").text(data.result);
-      });
-      return false;
-    });
+function saveItem(item_id) {
+
+  $.ajax({
+    url: '/catalog/save/' + item_id,
+    type: 'POST',
+    success: function(response){
+      console.log(response, "success");
+      // disable the button and update text
+      $("#" + item_id).html("Saved");
+      $("#" + item_id).prop('disabled', true);
+    },
+    error: function(error){
+      console.log(error);
+    }
   });
+
+}
+
+
+function removeItem(item_id) {
+  console.log(item_id, typeof(item_id))
+
+  $.ajax({
+    url: '/catalog/remove/' + item_id,
+    type: 'POST',
+    success: function(response){
+      console.log(response, "success");
+      // disable the button and fill color
+      $("#" + item_id).html("Removed");
+      $("#" + item_id).prop('disabled', true);
+    },
+    error: function(error){
+      console.log(error);
+    }
+  });
+
+}
