@@ -26,7 +26,8 @@ def create_app(test_config=None):
     # a landing page
     @app.route('/')
     def index():
-        return render_template('index.html', var = "hey")
+
+        return render_template('index.html')
 
     from . import auth, catalog
     app.register_blueprint(auth.bp)

@@ -3,7 +3,7 @@
     <head>
         <title>{% block title %}Home{% endblock %} | Open Source Library</title>
         <meta charset="utf-8">
-        <link rel="icon" href="../static/images/cloud-library-logo.png" type="image/png" sizes="16x16">
+        <link rel="icon" href="../static/images/library-new.png" type="image/png" sizes="16x16">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         <!-- Latest compiled and minified CSS -->
@@ -15,6 +15,7 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <script src="../static/catalog.js"></script>
+
     </head>
     <body>
         
@@ -25,11 +26,17 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
           <!-- Brand -->
           {% if g.user %}
-            <a class="navbar-brand" href="/catalog">Open Source Library</a>
+            <a class="navbar-brand" href="/catalog">
+              Open Source Library 
+              <img src="../static/images/library-new.png" alt="Logo" width="35" height="35">
+            </a>
           {% else %}
-            <a class="navbar-brand" href="/">Open Source Library</a>
+            <a class="navbar-brand" href="/">
+              Open Source Library 
+              <img src="../static/images/library-new.png" alt="Logo" width="35" height="35">
+            </a>
           {% endif %}
-          <img src="../static/images/cloud-library-logo.png" alt="" width="30" height="30">
+          
         
           <!-- Links -->
           <ul class="navbar-nav mx-auto">
@@ -55,6 +62,17 @@
           <ul class="navbar-nav ">
             {% if g.user %}
               <li class="nav-item"><a class="nav-link" href="/auth/logout">Log Out</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  Profile
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/catalog/books">Books</a>
+                  <a class="dropdown-item" href="/catalog/articles">Articles</a>
+                  <a class="dropdown-item" href="/catalog/courses">Courses</a>
+                  <a class="dropdown-item" href="/catalog/tracks">Learning Tracks</a>
+                </div>
+              </li>
             {% else %}
               <li class="nav-item"><a class="nav-link" href="/auth/login">Log In</a></li>
               <button class="btn btn-primary" type="submit" onclick="location.href = '/auth/register';">Register</button>
@@ -71,26 +89,28 @@
         {% endfor %}
 
         {% block content %}
-          {% if g.user %}
-            <h1 style="margin-top: 80px;">Welcome!</h1>
-          {% else %}
-            <div class="container" id="landing-page">
-              <div class="row" style="height: 100vh;">
-                <div class="col-md-6 align-items-center">
-                  <div>
-                    <img alt="" class="img-fluid" src="../static/images/online-edu-short-name.png" />
-                  </div>
+          <div class="container" id="landing-page" style="margin-top: -80px;">
+            <div class="row" style="height: 100vh;">
+              <div class="col-md-6 align-items-center">
+                <div>
+                  <img alt="" class="img-fluid" src="../static/images/online-edu-short-name.png" />
                 </div>
-                <div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
-                  <div>
+              </div>
+              <div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
+                <div>
+                  {% if g.user %}
+                    <h1>Welcome back!</h1>
+                    <button class="btn btn-success" onclick="location.href = '/catalog';">Check your saved resources</button>
+                  {% else %}
                     <h2>Learn Tech Skills with Free<br> Open-Source Resources</h2>
                     <p class="margin-top-s">Text-based and video-based learning materials</p>
                     <button type="button" class="btn btn-success btn-lg" id="get-started" onclick="location.href = '/auth/register';">Get Started</button>
-                  </div>
+                  {% endif %}
                 </div>
               </div>
             </div>
-          {% endif %}
+          </div>
+          
         {% endblock %}
 
       
