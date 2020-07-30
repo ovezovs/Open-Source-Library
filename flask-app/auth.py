@@ -76,7 +76,7 @@ def login():
             session.clear()
             session["user_id"] = str(user["_id"])
             
-            return redirect(url_for('catalog'))
+            return redirect(url_for('index'))
         
         flash(error)
         

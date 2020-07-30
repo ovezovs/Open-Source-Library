@@ -61,18 +61,8 @@
           
           <ul class="navbar-nav ">
             {% if g.user %}
+              <li class="nav-item"><a class="nav-link" href="/catalog">Your Resources</a></li>
               <li class="nav-item"><a class="nav-link" href="/auth/logout">Log Out</a></li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                  Profile
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="/catalog/books">Books</a>
-                  <a class="dropdown-item" href="/catalog/articles">Articles</a>
-                  <a class="dropdown-item" href="/catalog/courses">Courses</a>
-                  <a class="dropdown-item" href="/catalog/tracks">Learning Tracks</a>
-                </div>
-              </li>
             {% else %}
               <li class="nav-item"><a class="nav-link" href="/auth/login">Log In</a></li>
               <button class="btn btn-primary" type="submit" onclick="location.href = '/auth/register';">Register</button>
