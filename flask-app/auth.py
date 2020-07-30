@@ -45,7 +45,8 @@ def register():
                 "last_name": last_name,
                 "email": email,
                 "password": password,
-                "created": created
+                "created": created,
+                "saved": []
             })
             new_user = users.find_one({"_id": user.inserted_id})
             flash("Confirmation:" + new_user["email"] + " registered!")
@@ -75,7 +76,7 @@ def login():
             session.clear()
             session["user_id"] = str(user["_id"])
             
-            return redirect(url_for('index'))
+            return redirect(url_for('catalog'))
         
         flash(error)
         
