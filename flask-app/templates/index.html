@@ -5,7 +5,6 @@
         <meta charset="utf-8">
         <link rel="icon" href="../static/images/cloud-library-logo.png" type="image/png" sizes="16x16">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="../static/catalog.js"></script>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -15,7 +14,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        
+        <script src="../static/catalog.js"></script>
     </head>
     <body>
         
@@ -25,7 +24,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
           <!-- Brand -->
-          <a class="navbar-brand" href="/">Open Source Library</a>
+          {% if g.user %}
+            <a class="navbar-brand" href="/catalog">Open Source Library</a>
+          {% else %}
+            <a class="navbar-brand" href="/">Open Source Library</a>
+          {% endif %}
           <img src="../static/images/cloud-library-logo.png" alt="" width="30" height="30">
         
           <!-- Links -->

@@ -11,13 +11,24 @@
                 Courses
             {% elif tracks %}
                 Learning Tracks
+            {% elif user_catalog %}
+                Welcome!
             {% endif %}
         {% endblock %}</h1>
     </div>
 {% endblock %}
 
 {% block content %}
-
+{% if user_catalog %}    
+    <div class="container text-center">
+        <h5>Check Out Your Saved Items</h5>
+    </div>
+    {% if user_catalog_empty %}
+        <div class="container text-center">
+            <p>You haven't saved any items yet.</p>
+        </div>
+    {% endif %}
+{% endif %}
 <div class="container">
     <div class="row">
         {% for item in resources %}
@@ -38,12 +49,20 @@
                         <div class="d-flex m-2 cl">
                             <small class="text-muted p-2">Provided By <a href="{{ item['provider_link'] }}" target="_blank">{{ item["offered_by"] }}</a></small>
                             {% if g.user %}
-                                <a class="btn btn-outline-secondary ml-auto" id="save-item" href="#">Save</a>
+                                {% set item_id = item['_id'] %}
+                                {% if user_catalog %}
+                                    <button class="btn btn-danger ml-auto" id="{{ item_id | string }}" onclick="removeItem( '{{ item_id }}' )">Remove</button>
+                                {% elif item["saved"] %}
+                                    <button class="btn btn-outline-secondary ml-auto" id="{{ item_id | string }}" onclick="saveItem( '{{ item_id }}' )" disabled>Saved</button>
+                                {% elif not item["saved"] %}
+                                    <button class="btn btn-outline-secondary ml-auto" id="{{ item_id | string }}" onclick="saveItem( '{{ item_id }}' )">Save</button>                              
+                                {% endif %}
                             {% else %}
                                 <a class="btn btn-outline-secondary ml-auto" href="/auth/login">Save</a>
                             {% endif %}
                         </div>
                     </div>
+
                 </div>
             </div>
         {% endfor %}
