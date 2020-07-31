@@ -53,11 +53,6 @@
               </div>
             </li>
           </ul>
-
-          <!-- <form class="form-inline" action="#">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-success" type="submit">Search</button>
-          </form> -->
           
           <ul class="navbar-nav ">
             {% if g.user %}
@@ -71,37 +66,37 @@
         </div>
       </nav>
       
-        <header>
-          {% block header %}{% endblock %}
-        </header>
-        {% for message in get_flashed_messages() %}
-          <div class="flash">{{ message }}</div>
-        {% endfor %}
+      <header>
+        {% block header %}{% endblock %}
+      </header>
+      {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
 
-        {% block content %}
-          <div class="container" id="landing-page" style="margin-top: -80px;">
-            <div class="row" style="height: 100vh;">
-              <div class="col-md-6 align-items-center">
-                <div>
-                  <img alt="" class="img-fluid" src="../static/images/online-edu-short-name.png" />
-                </div>
+      {% block content %}
+        <div class="container" id="landing-page">
+          <div class="row" style="height: 100vh;">
+            <div class="col-md-6 align-items-center">
+              <div>
+                <img alt="" class="img-fluid" src="../static/images/online-edu-short-name.png" />
               </div>
-              <div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
-                <div>
-                  {% if g.user %}
-                    <h1>Welcome back!</h1>
-                    <button class="btn btn-success" onclick="location.href = '/catalog';">Check your saved resources</button>
-                  {% else %}
-                    <h2>Learn Tech Skills with Free<br> Open-Source Resources</h2>
-                    <p class="margin-top-s">Text-based and video-based learning materials</p>
-                    <button type="button" class="btn btn-success btn-lg" id="get-started" onclick="location.href = '/auth/register';">Get Started</button>
-                  {% endif %}
-                </div>
+            </div>
+            <div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
+              <div>
+                {% if g.user %}
+                  <h1>Welcome back!</h1>
+                  <button class="btn btn-success" onclick="location.href = '/catalog';">Check your saved resources</button>
+                {% else %}
+                  <h2>Learn Tech Skills with Free<br> Open-Source Resources</h2>
+                  <p class="margin-top-s">Text-based and video-based learning materials</p>
+                  <button type="button" class="btn btn-success btn-lg" id="get-started" onclick="location.href = '/auth/register';">Get Started</button>
+                {% endif %}
               </div>
             </div>
           </div>
-          
-        {% endblock %}
+        </div>
+        
+      {% endblock %}
 
       
 
