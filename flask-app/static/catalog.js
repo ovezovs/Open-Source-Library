@@ -25,7 +25,10 @@ function removeItem(item_id) {
     success: function(response){
       console.log(response, "success");
       // reload the page
+      $("#" + item_id).html("Removing...");
+      $("#" + item_id).prop('disabled', true);
       location.reload(true);
+      
     },
     error: function(error){
       console.log(error);

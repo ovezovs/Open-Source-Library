@@ -21,38 +21,32 @@ users = db["users"]
 def register():
     """docstring"""
 
-    result = "register"
+    error = None
     if request.method == 'POST':
-        first_name = request.form['first-name']
-        last_name = request.form['last-name']
-        email = request.form['email']
+        username = request.form['username']
         password = generate_password_hash(request.form['password'])
         created = datetime.utcnow()
 
-        error = None
-
-        if not email:
-            error = 'Email is required.'
+        if not username:
+            error = 'Username is required.'
         elif not password:
             error = 'Password is required.'
 
-        if users.find_one({'email': email}) is not None:
-            error = 'User is already is registered'
+        if users.find_one({'username': username}) is not None:
+            error = 'Username is not available'
         
         if error is None:
             user = users.insert_one({
-                "first_name": first_name,
-                "last_name": last_name,
-                "email": email,
+                "username": username,
                 "password": password,
                 "created": created,
                 "saved": []
             })
             new_user = users.find_one({"_id": user.inserted_id})
-            flash("Confirmation:" + new_user["email"] + " registered!")
+            flash("Successfully registered!")
             return redirect(url_for('auth.login'))
 
-        flash(error)
+        flash(error, 'error')
 
     return render_template('auth/register.html')
 
@@ -60,16 +54,15 @@ def register():
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
     """docstring"""
+    error = None
     if request.method == 'POST':
-        email = request.form['email']
+        username = request.form['username']
         password = request.form['password']
 
-        user = users.find_one({'email': email})
-        
-        error = None
+        user = users.find_one({'username': username})
 
         if user is None:
-            error = "Invalid email"
+            error = "Invalid username"
         elif not check_password_hash(user['password'], password):
             error = "Invalid password"
         else:
@@ -78,7 +71,7 @@ def login():
             
             return redirect(url_for('index'))
         
-        flash(error)
+        flash(error, 'error')
         
     return render_template('auth/login.html')
 

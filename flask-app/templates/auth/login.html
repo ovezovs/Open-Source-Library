@@ -1,27 +1,34 @@
 {% extends 'index.html' %}
 
 {% block header %}
-  <div class="container text-center" style="margin-top: 80px;">
-    <h1>{% block title %}Log In{% endblock %}</h1>
-  </div>
+  {% block title %}Log In{% endblock %}
 {% endblock %}
 
 {% block content %}
-  <div class="container">
-    <form method="post">
-      <div class="form-group justify-content-center">
-          <label for="inputEmail">Username</label>
-          <input type="text" class="form-control" name="email" title="email" placeholder="Username" required/>
-      </div>
-      <div class="form-group">
-          <label for="inputPassword">Password</label>
-          <input type="password" class="form-control" name="password" title="password" placeholder="Enter Password" required/>
-      </div>
-      <a href="/auth/register">Don't have an account? Sign Up</a>
-      <div style="margin-top: 20px;">
-        <button type="submit" class="btn btn-primary">Login</button>
-      </div>
 
-    </form>
+  <div class="container">
+    <div class="row justify-content-center" style="height: 100vh;">
+      <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 text-center align-items-center">
+        <form method="post">
+            <div class="form-group">
+                <h1>Log In</h1> 
+            </div>
+            <div class="form-group text-left">
+                <label for="inputUsername">Username</label>
+                <input type="text" class="form-control" name="username" title="username" placeholder="Username" required/>
+            </div>
+            <div class="form-group text-left">
+                <label for="inputPassword">Password</label>
+                <input type="password" class="form-control" name="password" title="password" placeholder="Enter Password" required/>
+            </div>
+            <div class="form-group">
+              <a href="/auth/register">Don't have an account? Sign Up</a>
+              <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Log In</button>
+            </div>
+        </form>
+      </div>
+    </div>
   </div>
+
+
 {% endblock %}
