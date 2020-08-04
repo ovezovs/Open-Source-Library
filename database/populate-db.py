@@ -5,7 +5,7 @@ load_dotenv()
 
 DROPPED = False
 
-# Document keys
+# Resource Document keys
 TITLE_KEY                   = "title"
 OFFERED_BY_KEY              = "offered_by"
 PROVIDER_LINK_KEY           = "provider_link"
