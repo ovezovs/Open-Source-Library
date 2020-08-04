@@ -29,9 +29,10 @@ def create_app(test_config=None):
 
         return render_template('index.html')
 
-    from . import auth, catalog
+    from . import auth, catalog, admin
     app.register_blueprint(auth.bp)
     app.register_blueprint(catalog.bp)
+    app.register_blueprint(admin.admin)
 
 
     return app

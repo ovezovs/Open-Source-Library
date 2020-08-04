@@ -40,7 +40,8 @@ def register():
                 "username": username,
                 "password": password,
                 "created": created,
-                "saved": []
+                "saved": [],
+                "admin": False
             })
             new_user = users.find_one({"_id": user.inserted_id})
             flash("Successfully registered!")
@@ -69,7 +70,11 @@ def login():
             session.clear()
             session["user_id"] = str(user["_id"])
             
-            return redirect(url_for('index'))
+            # check if admin
+            if user["admin"]:
+                return redirect(url_for("admin.add_resource"))
+            else:
+                return redirect(url_for('index'))
         
         flash(error, 'error')
         

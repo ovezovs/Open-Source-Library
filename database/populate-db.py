@@ -5,7 +5,7 @@ load_dotenv()
 
 DROPPED = False
 
-# Document keys
+# Resource Document keys
 TITLE_KEY                   = "title"
 OFFERED_BY_KEY              = "offered_by"
 PROVIDER_LINK_KEY           = "provider_link"
@@ -62,26 +62,6 @@ def populate_books():
             ORIGINAL_DESCRIPTION_KEY: "This book began as a paper book, first published by Franklin Beedle & Associates back in 2005. Written by Brad Miller and David Ranum. We are grateful for the vision of Jim Leisy who gave us permission to take our text and publish it online as an interactive textbook.",
             LINK_KEY: "https://runestone.academy/runestone/books/published/pythonds/index.html",
             TECH_STACK_KEY: ["Python"],
-            FLAGS_KEY: ["Text-Based", "Interactive"],
-            SAVED_KEY: False
-        },
-        {
-            TITLE_KEY: "Algorithms and Data Structures using C++",
-            OFFERED_BY_KEY: "Runestone Academy",
-            PROVIDER_LINK_KEY: "https://runestone.academy/runestone/default/user/login?_next=/runestone/default/index",
-            ORIGINAL_DESCRIPTION_KEY: "This book began as the paper book, Problem Solving with Algorithms and Data Structures Using Python, first published by Franklin Beedle & Associates written by Brad Miller and David Ranum back in 2005. It was translated to C++ by Jan Pearce and a team of excellent Berea College students in the summer of 2018. We are all grateful for the vision of Jim Leisy who gave permission to take the original Python version of this text and freely publish it online as an interactive textbook.",
-            LINK_KEY: "https://runestone.academy/runestone/books/published/cppds/index.html",
-            TECH_STACK_KEY: ["C++", "Python"],
-            FLAGS_KEY: ["Text-Based", "Interactive"],
-            SAVED_KEY: False
-        },
-        {
-            TITLE_KEY: "Algorithms and Data Structures using C++",
-            OFFERED_BY_KEY: "Runestone Academy",
-            PROVIDER_LINK_KEY: "https://runestone.academy/runestone/default/user/login?_next=/runestone/default/index",
-            ORIGINAL_DESCRIPTION_KEY: "This book began as the paper book, Problem Solving with Algorithms and Data Structures Using Python, first published by Franklin Beedle & Associates written by Brad Miller and David Ranum back in 2005. It was translated to C++ by Jan Pearce and a team of excellent Berea College students in the summer of 2018. We are all grateful for the vision of Jim Leisy who gave permission to take the original Python version of this text and freely publish it online as an interactive textbook.",
-            LINK_KEY: "https://runestone.academy/runestone/books/published/cppds/index.html",
-            TECH_STACK_KEY: ["C++", "Python"],
             FLAGS_KEY: ["Text-Based", "Interactive"],
             SAVED_KEY: False
         },
