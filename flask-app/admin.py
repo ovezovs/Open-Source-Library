@@ -34,56 +34,64 @@ SAVED_KEY                   = "saved"
 
 @admin.route('/', methods=('GET', 'POST'))
 def manage_resource():
-    pass
+
+    return render_template('errors/404.html')
 
 @admin.route('/add', methods=('GET', 'POST'))
 def add_resource():
-    if request.method == 'POST':
-        item_type = request.form['type']
-        title = request.form['title']
-        description = request.form['original_description']
-        link = request.form['link']
-        tech_stack = request.form.getlist('tech_stack')
-        offered_by = request.form['offered_by']
-        provider_link = request.form['provider_link']
-        flags = request.form.getlist('flags')
-        saved = False
+    user_id = ObjectId(session.get("user_id"))   # get current user
+    user = users.find_one({"_id": user_id})
+    is_admin = user["admin"]
+    if is_admin:
+        if request.method == 'POST':
+            item_type = request.form['type']
+            title = request.form['title']
+            description = request.form['original_description']
+            link = request.form['link']
+            tech_stack = request.form.getlist('tech_stack')
+            offered_by = request.form['offered_by']
+            provider_link = request.form['provider_link']
+            flags = request.form.getlist('flags')
+            saved = False
 
-        collection = None
-        if item_type == "Book":
-            collection = books
-        elif item_type == "Article":
-            collection = articles
-        elif item_type == "Course":
-            collection = courses
-        elif item_type == "Track":
-            collection = tracks
+            collection = None
+            if item_type == "Book":
+                collection = books
+            elif item_type == "Article":
+                collection = articles
+            elif item_type == "Course":
+                collection = courses
+            elif item_type == "Track":
+                collection = tracks
 
-        try:
-            collection.insert_one({
-                TITLE_KEY: title,
-                ORIGINAL_DESCRIPTION_KEY: description,
-                LINK_KEY: link,
-                TECH_STACK_KEY: tech_stack,
-                OFFERED_BY_KEY: offered_by,
-                PROVIDER_LINK_KEY: provider_link,
-                FLAGS_KEY: flags,
-                SAVED_KEY: saved
-            })
-            flash("Successfully added!")
-        except:
-            flash("Could not add the item", 'error')
+            try:
+                collection.insert_one({
+                    TITLE_KEY: title,
+                    ORIGINAL_DESCRIPTION_KEY: description,
+                    LINK_KEY: link,
+                    TECH_STACK_KEY: tech_stack,
+                    OFFERED_BY_KEY: offered_by,
+                    PROVIDER_LINK_KEY: provider_link,
+                    FLAGS_KEY: flags,
+                    SAVED_KEY: saved
+                })
+                flash("Successfully added!")
+            except:
+                flash("Could not add the item", 'error')
 
 
-    return render_template('admin/admin.html')
+        return render_template('admin/admin.html')
+    
+    else:
+        return render_template('errors/404.html')
 
 
 
 @admin.route('/update', methods=('GET', 'POST'))
 def update_resource():
-    pass
+    return render_template('errors/404.html')
 
 
 @admin.route('/remove', methods=('GET', 'POST'))
 def remove_resource():
-    pass
+    return render_template('errors/404.html')
