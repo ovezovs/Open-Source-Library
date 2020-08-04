@@ -34,7 +34,6 @@ SAVED_KEY                   = "saved"
 
 @admin.route('/', methods=('GET', 'POST'))
 def manage_resource():
-    # return render_template('admin/admin.html')
     pass
 
 @admin.route('/add', methods=('GET', 'POST'))
