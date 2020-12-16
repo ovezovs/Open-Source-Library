@@ -1,7 +1,7 @@
-# Open Source Library <img src="https://github.com/ovezovs/open-source-library/blob/master/flask-app/static/images/library-new.png" alt="Open Source Library Logo" width="40" height="40">
+# Open-Source Resources Library <img src="https://github.com/ovezovs/open-source-library/blob/master/flask-app/static/images/library-new.png" alt="Open Source Library Logo" width="40" height="40">
 ### Live at https://open-source-library.herokuapp.com
 
-Open Source Library is a platform that provides a collection of free open-source books, articles, videos, courses, and learning tracks for students to learn programming, different types of development, and other aspects of technology.
+Open-Source Resources Library is a platform that provides a collection of free open-source books, articles, videos, courses, and learning tracks for students to learn programming, different types of development, and other aspects of technology.
 
 ## Contributing
 Fork this repo and clone the forked repository
