@@ -11,4 +11,4 @@ PyJWT==2.4.0
 pymongo==4.6.3
 python-dotenv==0.14.0
 six==1.15.0
-Werkzeug==3.0.1
+Werkzeug==3.0.3
